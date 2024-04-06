@@ -196,9 +196,11 @@ if __name__ == "__main__":
     with io.open("configs/authors.txt", "r") as fopen:
         author_names, author_ids = parse_authors(fopen.readlines())
     author_id_set = set(author_ids)
+    print('author', author_id_set)
 
     papers = list(get_papers_from_arxiv(config))
     # dump all papers for debugging
+    print('papers', papers)
 
     all_authors = set()
     for paper in papers:
