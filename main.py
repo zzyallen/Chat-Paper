@@ -5,7 +5,7 @@ import time
 
 from openai import OpenAI
 from requests import Session
-from typing import TypeVar, Generator
+from typing import TypeVar, Generator, List
 import io
 
 from retry import retry
@@ -20,7 +20,7 @@ from arxiv_scraper import EnhancedJSONEncoder
 T = TypeVar("T")
 
 
-def batched(items: list[T], batch_size: int) -> list[T]:
+def batched(items: List[T], batch_size: int) -> List[T]:
     # takes a list and returns a list of list with batch_size
     return [items[i : i + batch_size] for i in range(0, len(items), batch_size)]
 
@@ -33,11 +33,11 @@ def argsort(seq):
 
 def get_paper_batch(
     session: Session,
-    ids: list[str],
+    ids: List[str],
     S2_API_KEY: str,
     fields: str = "paperId,title",
     **kwargs,
-) -> list[dict]:
+) -> List[dict]:
     # gets a batch of papers. taken from the sem scholar example.
     params = {
         "fields": fields,
@@ -66,11 +66,11 @@ def get_paper_batch(
 
 def get_author_batch(
     session: Session,
-    ids: list[str],
+    ids: List[str],
     S2_API_KEY: str,
     fields: str = "name,hIndex,citationCount",
     **kwargs,
-) -> list[dict]:
+) -> List[dict]:
     # gets a batch of authors. analogous to author batch
     params = {
         "fields": fields,
@@ -125,7 +125,7 @@ def get_one_author(session, author: str, S2_API_KEY: str) -> str:
 
 
 def get_papers(
-    ids: list[str], S2_API_KEY: str, batch_size: int = 100, **kwargs
+    ids: List[str], S2_API_KEY: str, batch_size: int = 100, **kwargs
 ) -> Generator[dict, None, None]:
     # gets all papers, doing batching to avoid hitting the max paper limit.
     # use a session to reuse the same TCP connection
@@ -136,7 +136,7 @@ def get_papers(
 
 
 def get_authors(
-    all_authors: list[str], S2_API_KEY: str, batch_size: int = 100, **kwargs
+    all_authors: List[str], S2_API_KEY: str, batch_size: int = 100, **kwargs
 ):
     # first get the list of all author ids by querying by author names
     author_metadata_dict = {}
@@ -196,11 +196,9 @@ if __name__ == "__main__":
     with io.open("configs/authors.txt", "r") as fopen:
         author_names, author_ids = parse_authors(fopen.readlines())
     author_id_set = set(author_ids)
-    print('author', author_id_set)
 
     papers = list(get_papers_from_arxiv(config))
     # dump all papers for debugging
-    print('papers', papers)
 
     all_authors = set()
     for paper in papers:
