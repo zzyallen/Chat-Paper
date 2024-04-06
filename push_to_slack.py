@@ -14,7 +14,7 @@ from arxiv_scraper import Paper
 T = TypeVar("T")
 
 
-def batched(items: list[T], batch_size: int) -> list[T]:
+def batched(items: List[T], batch_size: int) -> List[T]:
     # takes a list and returns a list of list with batch_size
     return [items[i : i + batch_size] for i in range(0, len(items), batch_size)]
 
