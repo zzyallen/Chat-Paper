@@ -186,7 +186,7 @@ if __name__ == "__main__":
     config.read("configs/config.ini")
 
     S2_API_KEY = os.environ.get("S2_KEY")
-    OAI_KEY = os.environ.get("OAI_KEY")
+    OAI_KEY = os.environ.get("OPENAI_KEY")
     print(OAI_KEY)
     if OAI_KEY is None:
         raise ValueError(
