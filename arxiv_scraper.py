@@ -76,7 +76,7 @@ def get_papers_from_arxiv_rss(area: str, config: Optional[dict]) -> List[Paper]:
     # format this into the string format 'Fri, 03 Nov 2023 00:30:00 GMT'
     updated_string = updated.strftime("%a, %d %b %Y %H:%M:%S GMT")
     feed = feedparser.parse(
-        f"http://export.arxiv.org/rss/{area}", modified=updated_string
+        f"http://rss.arxiv.org/rss/{area}", modified=updated_string
     )
     if feed.status == 304:
         if (config is not None) and config["OUTPUT"]["debug_messages"]:
