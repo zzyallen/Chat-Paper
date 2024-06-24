@@ -1,24 +1,21 @@
- 1. New methodological improvements to RLHF or instruction-following which are specific fine-tuning steps that are taken to make language models better at following user instructions across a range of tasks.
-    - Relevant: papers that discuss specific methods like RLHF, or instruction-tuning datasets, improving these methods, or analyzing them. Usually these papers will explicitly mention RLHF, instruction-following or instruction-tuning.
-    - Not relevant: papers about adaptation to some task. Simply following instructions or inputs are not sufficient.
- 2. Shows a significant advance in the performance of diffusion language models.
-    - Relevant: papers that study language models that are also diffusion models. Continuous diffusions are even more relevant, while discrete diffusions are less so.
-    - Not relevant: papers about image diffusions like DALL-E or Stable Diffusion, or papers that do not explicitly mention language models or applications to text.
- 3. Describes new paradigms to evaluating open-ended text generation. Evaluating the outputs of language models is hard, especially in open-ended settings like for chatbots.
+ 1. Describes new paradigms to evaluating open-ended text generation. Evaluating the outputs of language models is hard, especially in open-ended settings like for chatbots.
     - Relevant: papers that fundamentally rethink language model evaluation -- especially by accounting for subjectivity or using adversaries.
     - Not relevant: specific evaluations for specific tasks, identifying new properties or flaws of language models, or simply collecting new data.
- 4. Studies 'scaling laws' in the context of neural networks. Scaling laws refer to the very clear power-law relationship between the size or computational power used to train a model and the performance of that model.
+ 2. Studies 'scaling laws' in the context of neural networks. Scaling laws refer to the very clear power-law relationship between the size or computational power used to train a model and the performance of that model.
     - Relevant: theoretical or conceptual explanation behind scaling laws for language models.
     - Not relevant: papers that have experiments at different model scales (but do not explicitly fit a scaling law) or papers that mention scaling laws, but the scaling laws are not the central subject of the paper
- 5. New methodological improvements in terms of efficiency of foundation models.
-    - Relevant: papers about improve inference efficiency of foundation models, either language models, vision models, or multi-modal models.
+ 3. New methodological improvements in terms of efficiency of foundation models.
+    - Relevant: papers about improve inference and finetuning efficiency of foundation models, either language models, vision models, or multi-modal models.
     - Not relevant: papers that directly apply existing methods.
- 6. New analysis about modeling long context information, not limited to language.
+ 4. New analysis about modeling long context information, either language, video, audio and other modals.
     - Relevant: papers that study the theoretical and empirical analysis of long context model.
     - Not relevant: specific evaluations for specific tasks.
- 7. New architecutres proposed in language models, including state space model, transformers, mixture-of-experts, RNN, etc.
+ 5. New architecutres proposed in language models, including state space model, transformers, mixture-of-experts, RNN, etc.
     - Relevant: papers that demonstrates strong performance or efficiency compared with current models.
     - Not Relevant: papers that shows limited experiment results.
+ 6. Analysis about the compositional generalization about machine learning systems.
+    - Relevant: Studies about compositional generalization about machine learning systems, either empirically or theoretically. 
+    - Not Relevant: None.
 
  In suggesting papers to your friend, remember that he enjoys papers on statistical machine learning, and generative modeling in natural language processing.
  Your friend also likes learning about surprising empirical results in language models, as well as clever statistical tricks.
